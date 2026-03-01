@@ -795,7 +795,6 @@ h6 {
   box-shadow: var(--shadow-md);
 }
 
-/* Menu Page Overlay */
 .menu-overlay {
   position: fixed;
   inset: 0;
@@ -805,9 +804,13 @@ h6 {
   visibility: hidden;
   transition: var(--transition);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   backdrop-filter: blur(15px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 100px 0 40px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .menu-overlay.active {
@@ -970,7 +973,18 @@ h6 {
   }
 
   .menu-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2rem;
+    gap: 1.5rem;
+  }
+
+  .menu-card {
+    flex: 0 0 85%;
   }
 
   .form-premium {
